@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context="pmp.tianxundai.com.notepaddemo.aty.DayItemAty">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            >
+            <TextView
+                android:id="@+id/finish_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                android:textColor="@color/heise"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="事件名称"
+                android:textColor="@color/heise"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在这里编辑内容:"
+            android:textSize="15dp"
+            android:textColor="@color/heise"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="开始编写内容"
+                android:textColor="@color/heise"
+                android:textColorHint="#5e5e5e"
+                />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button_baocun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#ff2a2a"
+            android:text="保存"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>

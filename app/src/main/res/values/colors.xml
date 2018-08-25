@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="zhuti">#00fffb</color>
+    <color name="bg_color">#ffd6bb</color>
+    <color name="textColor_selected">#979797</color>
+    <color name="heise">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="ed_color">#818080</color>
+</resources>

@@ -1,0 +1,137 @@
+<LinearLayout android:id="@+id/viewport_ll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="pmp.tianxundai.com.notepaddemo.fgt.ViewportFgt"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/title_text"/>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="#38AE80">
+                <TextView
+                    android:id="@+id/tv_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="9月"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_toRightOf="@id/tv_month"
+                    android:text="2017nian"
+                    android:textColor="#ffffff" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="日"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="一"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="二"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="三"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="四"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="五"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="六"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <com.necer.ncalendar.calendar.MonthCalendar
+                android:id="@+id/monthcalendar"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:calendarHeight="300dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="回到今天"
+                android:id="@+id/button_day"
+                />
+
+            <Button
+                android:id="@+id/buton_aty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="跳转到 2018-10-11" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

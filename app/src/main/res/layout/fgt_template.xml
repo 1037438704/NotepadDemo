@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="pmp.tianxundai.com.notepaddemo.fgt.TemplateFgt">
+
+    <include layout="@layout/title_text" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/basic_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableRight="@mipmap/add"
+                android:padding="10dp"
+                android:text="基本信息"
+                android:textColor="@color/heise"
+                android:textSize="20sp" />
+
+            <include layout="@layout/title_layout" />
+
+            <TextView
+                android:id="@+id/day_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableRight="@mipmap/add"
+                android:padding="10dp"
+                android:text="日程模板"
+                android:textColor="@color/heise"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/richeng_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

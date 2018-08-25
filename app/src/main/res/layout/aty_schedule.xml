@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context="pmp.tianxundai.com.notepaddemo.aty.ScheduleAty">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_rl_layout" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/basic_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/add_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="30dp"
+                    android:src="@mipmap/add" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+        <Button
+            android:id="@+id/baocun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+</LinearLayout>
