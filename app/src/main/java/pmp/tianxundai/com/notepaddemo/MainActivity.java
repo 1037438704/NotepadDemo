@@ -1,16 +1,18 @@
 package pmp.tianxundai.com.notepaddemo;
 
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
 import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
+import com.kongzue.baseframework.util.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +44,12 @@ public class MainActivity extends BaseAty {
     private List<Fragment> data;
     private List<String> lists;
     private FgtAdapter fgtAdapter;
+    private ImageView imageView;
 
     @Override
     public void initViews() {
         viewPager = findViewById(R.id.viewPager);
+        imageView = findViewById(R.id.imageView);
         fragment_tab = findViewById(R.id.fragment_tab);
         lists = new ArrayList<>();
         data = new ArrayList<>();
@@ -53,6 +57,7 @@ public class MainActivity extends BaseAty {
 
     @Override
     public void initDatas(JumpParameter paramer) {
+//        fragment_tab.setY(getNavbarHeight());
         lists.add("首页");
         lists.add("视图");
         lists.add("事件");
@@ -69,6 +74,17 @@ public class MainActivity extends BaseAty {
         viewPager.setAdapter(fgtAdapter);
         // 将ViewPager与TabLayout相关联
         fragment_tab.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!isNull(Preferences.getInstance().getString(me, "user", "bg"))) {
+            String string = Preferences.getInstance().getString(me, "user", "bg");
+            Uri uri = Uri.parse(string);
+            toast(uri);
+            Glide.with(this).load(uri).into(imageView);
+        }
     }
 
     @Override

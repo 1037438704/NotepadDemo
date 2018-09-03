@@ -31,6 +31,7 @@ public class StudentsBeanDao extends AbstractDao<StudentsBean, Long> {
         public final static Property Week = new Property(4, String.class, "week", false, "WEEK");
         public final static Property ABoolean = new Property(5, Boolean.class, "aBoolean", false, "A_BOOLEAN");
         public final static Property TheEventContent = new Property(6, String.class, "theEventContent", false, "THE_EVENT_CONTENT");
+        public final static Property DataContent = new Property(7, String.class, "dataContent", false, "DATA_CONTENT");
     }
 
 
@@ -52,7 +53,8 @@ public class StudentsBeanDao extends AbstractDao<StudentsBean, Long> {
                 "\"TIME\" TEXT," + // 3: time
                 "\"WEEK\" TEXT," + // 4: week
                 "\"A_BOOLEAN\" INTEGER," + // 5: aBoolean
-                "\"THE_EVENT_CONTENT\" TEXT);"); // 6: theEventContent
+                "\"THE_EVENT_CONTENT\" TEXT," + // 6: theEventContent
+                "\"DATA_CONTENT\" TEXT);"); // 7: dataContent
     }
 
     /** Drops the underlying database table. */
@@ -99,6 +101,11 @@ public class StudentsBeanDao extends AbstractDao<StudentsBean, Long> {
         if (theEventContent != null) {
             stmt.bindString(7, theEventContent);
         }
+ 
+        String dataContent = entity.getDataContent();
+        if (dataContent != null) {
+            stmt.bindString(8, dataContent);
+        }
     }
 
     @Override
@@ -139,6 +146,11 @@ public class StudentsBeanDao extends AbstractDao<StudentsBean, Long> {
         if (theEventContent != null) {
             stmt.bindString(7, theEventContent);
         }
+ 
+        String dataContent = entity.getDataContent();
+        if (dataContent != null) {
+            stmt.bindString(8, dataContent);
+        }
     }
 
     @Override
@@ -155,7 +167,8 @@ public class StudentsBeanDao extends AbstractDao<StudentsBean, Long> {
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // time
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // week
             cursor.isNull(offset + 5) ? null : cursor.getShort(offset + 5) != 0, // aBoolean
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6) // theEventContent
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // theEventContent
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7) // dataContent
         );
         return entity;
     }
@@ -169,6 +182,7 @@ public class StudentsBeanDao extends AbstractDao<StudentsBean, Long> {
         entity.setWeek(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setABoolean(cursor.isNull(offset + 5) ? null : cursor.getShort(offset + 5) != 0);
         entity.setTheEventContent(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setDataContent(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
      }
     
     @Override

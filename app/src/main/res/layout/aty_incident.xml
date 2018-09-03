@@ -11,23 +11,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:fitsSystemWindows="true"
-        >
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/white"
-            >
+            android:background="@color/white">
+
             <TextView
                 android:id="@+id/finish_tv"
-                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="返回"
-                android:textColor="@color/heise"
                 android:layout_centerVertical="true"
-                />
+                android:layout_marginLeft="10dp"
+                android:text="返回"
+                android:textColor="@color/heise" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
@@ -38,13 +38,14 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/text_right"
+                android:text="切换模板"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="提醒"
-                android:textColor="@color/heise" />
+                android:layout_marginRight="10dp" />
         </RelativeLayout>
 
         <android.support.v4.widget.NestedScrollView
@@ -87,7 +88,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-
         </android.support.v4.widget.NestedScrollView>
         <Button
             android:id="@+id/button_baocun"
@@ -98,6 +98,4 @@
             android:text="保存"
             android:textSize="20sp" />
     </LinearLayout>
-
-
 </LinearLayout>

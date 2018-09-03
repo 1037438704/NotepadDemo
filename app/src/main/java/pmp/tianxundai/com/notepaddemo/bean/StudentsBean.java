@@ -47,9 +47,14 @@ public class StudentsBean{
      * 事件内容
      */
     private String theEventContent;
-    @Generated(hash = 2006566229)
+    /**
+     * 天数内容
+     * */
+    private String dataContent;
+    @Generated(hash = 285763601)
     public StudentsBean(Long id, String title, String data, String time,
-            String week, Boolean aBoolean, String theEventContent) {
+            String week, Boolean aBoolean, String theEventContent,
+            String dataContent) {
         this.id = id;
         this.title = title;
         this.data = data;
@@ -57,6 +62,7 @@ public class StudentsBean{
         this.week = week;
         this.aBoolean = aBoolean;
         this.theEventContent = theEventContent;
+        this.dataContent = dataContent;
     }
     @Generated(hash = 2112867845)
     public StudentsBean() {
@@ -103,6 +109,12 @@ public class StudentsBean{
     public void setTheEventContent(String theEventContent) {
         this.theEventContent = theEventContent;
     }
+    public String getDataContent() {
+        return this.dataContent;
+    }
+    public void setDataContent(String dataContent) {
+        this.dataContent = dataContent;
+    }
 
     @Override
     public String toString() {
@@ -114,6 +126,7 @@ public class StudentsBean{
                 ", week='" + week + '\'' +
                 ", aBoolean=" + aBoolean +
                 ", theEventContent='" + theEventContent + '\'' +
+                ", dataContent='" + dataContent + '\'' +
                 '}';
     }
 }

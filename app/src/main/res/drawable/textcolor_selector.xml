@@ -2,4 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/textColor_selected" android:state_pressed="true"></item>
     <item android:drawable="@color/white"></item>
+    <!--<item android:drawable="@drawable/shape_dialog_bg2" android:state_pressed="true"></item>-->
+    <!--<item android:drawable="@drawable/shape_dialog_bg1"></item>-->
 </selector>

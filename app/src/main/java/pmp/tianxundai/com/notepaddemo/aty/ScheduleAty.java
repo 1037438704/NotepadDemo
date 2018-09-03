@@ -1,9 +1,12 @@
 package pmp.tianxundai.com.notepaddemo.aty;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,6 +54,10 @@ public class ScheduleAty extends BaseAty {
     private TimePickerView pvTime;
     private int countitem;
     private int fanhui = 2;
+    private AlertDialog dialog;
+    private View view;
+    private EditText dialog_edtext;
+    private int count;
 
     @Override
     public void initViews() {
@@ -61,6 +68,8 @@ public class ScheduleAty extends BaseAty {
         baocun = findViewById(R.id.baocun);
         list = new ArrayList<>();
         basic_rv.setLayoutManager(new LinearLayoutManager(me));
+        view = getLayoutInflater().inflate(R.layout.dialog_ed, null);
+        dialog_edtext = view.findViewById(R.id.dialog_edtext);
     }
 
     @Override
@@ -75,6 +84,30 @@ public class ScheduleAty extends BaseAty {
 //        //在这里先添加第一条数据库的数据  存日常模板
         //时间选择
         tiem();
+        //对话框
+        dialog = new AlertDialog.Builder(me)
+                .setTitle("请输入标题名")
+                .setView(view)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (dialog_edtext.getText().toString().trim().toString() == null) {
+                            toast("标题名不能为空");
+                            return;
+                        }
+                        //返回插入数据实体类
+                        list.get(count).setItmedata(dialog_edtext.getText().toString().trim());
+                        dialog_edtext.setText("");
+                        templateAdapter.notifyDataSetChanged();
+                    }
+                })
+                .setNeutralButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        toast("你点击了取消");
+                    }
+                })
+                .create();
 
     }
 
@@ -89,13 +122,16 @@ public class ScheduleAty extends BaseAty {
             }
         });
         //添加item对象
-        add_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                list.add(new DataBean(list.size() + 1, null));
-                templateAdapter.notifyDataSetChanged();
-            }
-        });
+//        add_image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+////                list.add(new DataBean(list.size() + 1, null));
+////                templateAdapter.notifyDataSetChanged();
+//                list.add(new DataBean(list.size() + 1, null));
+//                templateAdapter.notifyDataSetChanged();
+//            }
+//        });
         //保存
         baocun.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +147,8 @@ public class ScheduleAty extends BaseAty {
         templateAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+//                count = position;
+//                dialog.show();
                 countitem = position;
                 pvTime.show();
             }

@@ -4,17 +4,14 @@ package pmp.tianxundai.com.notepaddemo.fgt;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.util.JumpParameter;
 import com.necer.ncalendar.calendar.MonthCalendar;
 import com.necer.ncalendar.listener.OnMonthCalendarChangedListener;
-
 import org.joda.time.LocalDate;
-
 import java.util.List;
-
 import pmp.tianxundai.com.notepaddemo.R;
 import pmp.tianxundai.com.notepaddemo.aty.DayAty;
 import pmp.tianxundai.com.notepaddemo.base.BaseFgt;
@@ -40,10 +37,12 @@ public class ViewportFgt extends BaseFgt {
     private Button button_day;
     private Button buton_aty;
     private String stringData;
+    private LinearLayout viewport_ll;
 
 
     @Override
     public void initViews() {
+        viewport_ll = findViewById(R.id.viewport_ll);
         title_text = findViewById(R.id.title_text);
         dateText = findViewById(R.id.tv_date);
         tv_month = findViewById(R.id.tv_month);
@@ -59,6 +58,7 @@ public class ViewportFgt extends BaseFgt {
 
     @Override
     public void initDatas() {
+        viewport_ll.setY(me.getStatusBarHeight());
         title_text.setText("视图界面");
     }
 

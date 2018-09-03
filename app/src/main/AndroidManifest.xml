@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".MyApplication"
@@ -21,14 +22,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".aty.IncidentAty" />
-        <activity android:name=".aty.EssentialAty" />
         <activity android:name=".aty.ScheduleAty" />
         <activity android:name=".aty.BackgroundAty" />
         <activity android:name=".aty.RingAty" />
         <activity android:name=".aty.MannerAty" />
         <activity android:name=".aty.DayAty" />
         <activity android:name=".aty.BasicAty" />
-        <activity android:name=".aty.DayItemAty"></activity>
+        <activity android:name=".aty.DayItemAty" />
+        <activity android:name=".aty.RingActivity" />
+
+        <receiver android:name=".guangbo.RingReceived">
+            <intent-filter>
+                <action android:name="com.example.cloakandnotifaction.shuting" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".aty.NaolingActivity" />
+        <activity android:name=".aty.Main2Activity" />
+        <activity android:name=".aty.Main3Activity"></activity>
     </application>
 
 </manifest>

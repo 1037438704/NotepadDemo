@@ -2,10 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color"
     android:orientation="vertical"
+    android:id="@+id/ll_layout"
     tools:context="pmp.tianxundai.com.notepaddemo.fgt.MyFgt">
-    <include layout="@layout/title_text"/>
+
+    <include layout="@layout/title_text" />
+
     <include layout="@layout/title_layout" />
 
 </LinearLayout>

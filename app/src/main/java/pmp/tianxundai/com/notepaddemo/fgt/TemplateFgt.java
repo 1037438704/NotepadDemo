@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -40,10 +41,12 @@ public class TemplateFgt extends BaseFgt {
     private String string;
     List<DataBean> list = new ArrayList<>();
     private TemplateAdapter templateAdapter,templateAdapter2;
+    private LinearLayout ll_layout;
 
     @Override
     public void initViews() {
         basic_tv = findViewById(R.id.basic_tv);
+        ll_layout = findViewById(R.id.ll_layout);
         title_rv = findViewById(R.id.title_rv);
         richeng_rv = findViewById(R.id.richeng_rv);
         title_text = findViewById(R.id.title_text);
@@ -54,6 +57,7 @@ public class TemplateFgt extends BaseFgt {
 
     @Override
     public void initDatas() {
+        ll_layout.setY(me.getStatusBarHeight());
         title_text.setText("模板界面");
     }
 

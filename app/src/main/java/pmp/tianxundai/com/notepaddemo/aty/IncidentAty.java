@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +47,7 @@ import pmp.tianxundai.com.notepaddemo.bean.DataBean;
 public class IncidentAty extends BaseAty {
     private Button button_baocun;
     private RecyclerView title_rv, richeng_rv;
-    private TextView basic_tv, title_text, day_tv, finish_tv;
+    private TextView basic_tv, title_text, day_tv, finish_tv,text_right;
     private String string;
     private List<DataBean> list1, list2;
     private TemplateAdapter3 templateAdapter, templateAdapter2;
@@ -59,12 +60,14 @@ public class IncidentAty extends BaseAty {
     private View view;
     private EditText dialog_edtext;
     private AlertDialog dialog1, dialog2;
+    private String getTheEventContent, getDataContent;
 
     @Override
     public void initViews() {
         list1 = new ArrayList<>();
         list2 = new ArrayList<>();
         basic_tv = findViewById(R.id.basic_tv);
+        text_right = findViewById(R.id.text_right);
         finish_tv = findViewById(R.id.finish_tv);
         button_baocun = findViewById(R.id.button_baocun);
         title_rv = findViewById(R.id.title_rv);
@@ -80,10 +83,17 @@ public class IncidentAty extends BaseAty {
     @Override
     public void initDatas(JumpParameter paramer) {
         count = (int) paramer.get("count");
+        if (!paramer.getString("getTheEventContent").equals("")) {
+            getTheEventContent = paramer.getString("getTheEventContent");
+        }
+        if (!paramer.getString("getDataContent").equals("")) {
+            getDataContent = paramer.getString("getDataContent");
+        }
+        Log.d("传过来的数据", "" + getTheEventContent + getDataContent);
+
 
         //对话框
         duihuakuang();
-        shuju();
     }
 
 
@@ -110,9 +120,9 @@ public class IncidentAty extends BaseAty {
                 jump(ScheduleAty.class, new OnResponseListener() {
                     @Override
                     public void OnResponse(JumpParameter jumpParameter) {
-                        if (jumpParameter==null){
+                        if (jumpParameter == null) {
                             toast("未返回任何数据");
-                        }else{
+                        } else {
                             fanhui = String.valueOf(jumpParameter.get("fanhui"));
                             fanhui2 = Integer.valueOf(fanhui);
                         }
@@ -131,11 +141,18 @@ public class IncidentAty extends BaseAty {
                     Preferences.getInstance().set(me, "user", "shang", str);
                     Gson gson2 = new Gson();
                     String str2 = gson2.toJson(list2);
-                    Log.d("zdl", "==============list1==================" + str2.toString());
+                    Log.d("zdl", "==============lis21==================" + str2.toString());
                     Preferences.getInstance().set(me, "user", "xia", str2);
                 }
-                setResponse(new JumpParameter().put("count",count));
+                setResponse(new JumpParameter().put("count", count));
                 finish();
+            }
+        });
+        //切换模板
+        text_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
@@ -163,10 +180,6 @@ public class IncidentAty extends BaseAty {
                 dialog1.show();
             }
         });
-    }
-
-    private void shuju() {
-
     }
 
     private void duihuakuang() {

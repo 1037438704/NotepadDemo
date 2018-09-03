@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
@@ -26,6 +27,7 @@ import pmp.tianxundai.com.notepaddemo.R;
 import pmp.tianxundai.com.notepaddemo.adapter.TemplateAdapter2;
 import pmp.tianxundai.com.notepaddemo.base.BaseAty;
 import pmp.tianxundai.com.notepaddemo.bean.DataBean;
+import pmp.tianxundai.com.notepaddemo.bean.StudentsBean;
 import pmp.tianxundai.com.notepaddemo.utils.DataString;
 
 /**
@@ -55,6 +57,14 @@ public class BasicAty extends BaseAty {
 
     @Override
     public void initViews() {
+
+
+
+        //查询所有数据
+        //查询所有数据库中的数据
+        List<StudentsBean> studentList = studentsBeanDao.queryBuilder().list();
+        toast(studentList.toString());
+
         finish = findViewById(R.id.finish);
         title_text = findViewById(R.id.title_text);
         basic_rv = findViewById(R.id.basic_rv);
@@ -125,8 +135,20 @@ public class BasicAty extends BaseAty {
                 Gson gson = new Gson();
                 String str = gson.toJson(list);
                 Preferences.getInstance().set(me, "user", "xinxi", str);
+                //这里创建数据库
+                long insert = studentsBeanDao.insert(new StudentsBean() {
+                    {
+                        this.setTime("基础");
+                        this.setTheEventContent(Preferences.getInstance().getString(me, "user", "xinxi"));
+                    }
+                });
+                if (insert > 0) {
+                    Toast.makeText(me, "添加成功" + insert, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(me, "添加失败" + insert, Toast.LENGTH_SHORT).show();
+                }
                 finish();
-                toast("保存成功");
+//                toast("保存成功");
             }
         });
         //item的点击事件

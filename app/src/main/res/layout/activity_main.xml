@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/zhuti"
     tools:context="pmp.tianxundai.com.notepaddemo.MainActivity">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical">
-
+        android:background="@color/bg_color"
+        android:scaleType="fitXY" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                />
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/fragment_tab"
-                android:background="#ff7700"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="#ff7700"
                 app:tabIndicatorColor="@color/colorPrimary"
                 app:tabIndicatorHeight="5dp"
                 app:tabSelectedTextColor="@color/colorPrimary"
-                app:tabTextColor="@color/bg_color" />
+                app:tabTextColor="@color/bg_color"
+                />
         </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+</FrameLayout>
